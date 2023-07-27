@@ -1,0 +1,34 @@
+// // Return index of leftmost non-repeating character
+
+#include <bits/stdc++.h>
+using namespace std;
+
+const int CHAR = 256;
+int nonrep(string s)
+{
+    int count[CHAR] = {0};
+
+    for (int i = 0; i < s.length(); i++)
+    {
+        count[s[i]]++;
+    }
+
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (count[s[i]] == 1)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int main()
+{
+    string s = "geeksforgeeks";
+
+    cout << nonrep(s);
+
+    return 0;
+}
